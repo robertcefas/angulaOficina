@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+git checkout -b develop import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { Footer } from './footer';
 
