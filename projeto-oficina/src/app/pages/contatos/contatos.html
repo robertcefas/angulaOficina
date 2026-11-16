@@ -1,1 +1,112 @@
-<p>contatos works!</p>
+<main class="contatos-container">
+  <section class="hero-contatos">
+    <span class="tag">Atendimento & Orçamentos</span>
+    <h1>Fale com Nossa Equipe</h1>
+    <p>
+      Tire dúvidas, solicite um orçamento ou agende a revisão do seu carro ou moto 
+      de forma rápida e sem compromisso.
+    </p>
+  </section>
+
+  <section class="contatos-grid">
+    <div class="info-coluna">
+      <div class="info-card">
+        <h3>📍 Endereço</h3>
+        <p>Av. dos Mecânicos, 1450 - Centro Automotivo</p>
+        <span>Estacionamento próprio para clientes</span>
+      </div>
+
+      <div class="info-card">
+        <h3>📞 Telefone & WhatsApp</h3>
+        <p>(71) 99999-0000</p>
+        <span>Atendimento rápido para orçamentos</span>
+      </div>
+
+      <div class="info-card">
+        <h3>🕒 Horário de Funcionamento</h3>
+        <p>Segunda a Sexta: 08h às 18h</p>
+        <span>Sábado: 08h às 13h</span>
+      </div>
+
+      <div class="info-card">
+        <h3>✉️ E-mail</h3>
+        <p>contato&#64;oficinamecanica.com.br</p>
+        <span>Retorno em até 2 horas úteis</span>
+      </div>
+    </div>
+
+    <div class="form-coluna">
+      <h2>Envie uma Mensagem</h2>
+      <p class="form-subtitulo">Preencha os campos abaixo e retornaremos o contato.</p>
+
+      @if (enviado) {
+        <div class="alerta-sucesso">
+          <strong>Mensagem enviada com sucesso, {{ nomeEnviado }}!</strong>
+          <p>Nossa equipe recebeu sua solicitação e entrará em contato em breve.</p>
+        </div>
+      }
+
+      <form (ngSubmit)="enviarMensagem()" class="contato-form">
+        <div class="campo">
+          <label for="nome">Nome Completo *</label>
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            [(ngModel)]="dadosFormulario.nome"
+            placeholder="Ex: João Silva"
+            required
+          />
+        </div>
+
+        <div class="campo-duplo">
+          <div class="campo">
+            <label for="telefone">Telefone / WhatsApp *</label>
+            <input
+              type="tel"
+              id="telefone"
+              name="telefone"
+              [(ngModel)]="dadosFormulario.telefone"
+              placeholder="(00) 00000-0000"
+              required
+            />
+          </div>
+
+          <div class="campo">
+            <label for="veiculo">Tipo de Veículo</label>
+            <select id="veiculo" name="veiculo" [(ngModel)]="dadosFormulario.veiculo">
+              <option value="Carro">Carro</option>
+              <option value="Moto">Moto</option>
+              <option value="Utilitário">Utilitário</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="assunto">Modelo / Serviço Desejado</label>
+          <input
+            type="text"
+            id="assunto"
+            name="assunto"
+            [(ngModel)]="dadosFormulario.assunto"
+            placeholder="Ex: Onix 2020 - Revisão e troca de óleo"
+          />
+        </div>
+
+        <div class="campo">
+          <label for="mensagem">Mensagem *</label>
+          <textarea
+            id="mensagem"
+            name="mensagem"
+            rows="4"
+            [(ngModel)]="dadosFormulario.mensagem"
+            placeholder="Descreva o problema ou o serviço que você precisa..."
+            required
+          ></textarea>
+        </div>
+
+        <button type="submit" class="btn-enviar">Enviar Solicitação</button>
+      </form>
+    </div>
+  </section>
+</main>
