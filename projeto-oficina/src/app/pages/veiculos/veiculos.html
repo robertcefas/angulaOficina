@@ -1,1 +1,70 @@
-<p>veiculos works!</p>
+<main class="veiculos-container">
+  <section class="hero-veiculos">
+    <div class="hero-conteudo">
+      <span class="tag">Quatro & Duas Rodas</span>
+      <h1>Manutenção Especializada para Carros e Motos</h1>
+      <p>
+        Estrutura completa, diagnóstico computadorizado e mecânicos treinados 
+        para cuidar do seu veículo com agilidade e garantia.
+      </p>
+      <a routerLink="/contatos" class="btn-agendar">Agendar Atendimento</a>
+    </div>
+  </section>
+
+  <section class="servicos-section">
+    <div class="cabecalho-filtros">
+      <div>
+        <h2>Nossas Especialidades</h2>
+        <p class="subtitulo">Filtre pelo tipo de veículo para ver os serviços disponíveis</p>
+      </div>
+
+      <div class="filtros-botoes">
+        <button
+          type="button"
+          class="btn-filtro"
+          [class.ativo]="filtroAtual === 'todos'"
+          (click)="selecionarFiltro('todos')"
+        >
+          Todos
+        </button>
+        <button
+          type="button"
+          class="btn-filtro"
+          [class.ativo]="filtroAtual === 'carro'"
+          (click)="selecionarFiltro('carro')"
+        >
+          🚗 Carros
+        </button>
+        <button
+          type="button"
+          class="btn-filtro"
+          [class.ativo]="filtroAtual === 'moto'"
+          (click)="selecionarFiltro('moto')"
+        >
+          🏍️ Motos
+        </button>
+      </div>
+    </div>
+
+    <div class="cards-grid">
+      @for (item of servicosFiltrados; track item.titulo) {
+        <article class="card-servico">
+          <div class="card-badges">
+            <span class="badge-categoria" [class.moto]="item.categoria === 'moto'">
+              {{ item.categoria === 'carro' ? '🚗 Carro' : '🏍️ Moto' }}
+            </span>
+            <span class="tempo">⏱ {{ item.tempoEstimado }}</span>
+          </div>
+          <h3>{{ item.titulo }}</h3>
+          <p>{{ item.descricao }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="cta-rodape">
+    <h2>Não encontrou o serviço específico do seu veículo?</h2>
+    <p>Envie o modelo e o ano para nossa equipe montar um orçamento personalizado.</p>
+    <a routerLink="/contatos" class="btn-secundario">Solicitar Orçamento</a>
+  </section>
+</main>
