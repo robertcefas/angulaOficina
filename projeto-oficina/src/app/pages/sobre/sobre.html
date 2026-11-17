@@ -1,1 +1,58 @@
-<p>sobre works!</p>
+<main class="sobre-container">
+  <section class="hero-sobre">
+    <span class="tag">Nossa História & Estrutura</span>
+    <h1>Tradição, Tecnologia e Confiança na Estrada</h1>
+    <p>
+      Nascemos com o propósito de oferecer uma oficina moderna, honesta e completa 
+      para quem busca cuidado real com o seu carro ou moto.
+    </p>
+  </section>
+
+  <section class="historia-section">
+    <div class="historia-texto">
+      <h2>Quem Somos</h2>
+      <p>
+        Fundada por profissionais apaixonados por mecânica, nossa oficina cresceu unindo 
+        o atendimento próximo de bairro com equipamentos de diagnóstico de ponta.
+      </p>
+      <p>
+        Aqui você acompanha cada etapa da manutenção do seu veículo sem surpresas na hora 
+        de fechar a conta — desde uma simples troca de óleo até revisões completas de motor, 
+        freios e suspensão.
+      </p>
+    </div>
+
+    <div class="numeros-grid">
+      @for (item of numeros; track item.rotulo) {
+        <div class="numero-card">
+          <strong>{{ item.valor }}</strong>
+          <span>{{ item.rotulo }}</span>
+        </div>
+      }
+    </div>
+  </section>
+
+  <section class="diferenciais-section">
+    <h2>Por Que Escolher Nossa Oficina?</h2>
+    <p class="subtitulo">Compromisso com a sua segurança em cada detalhe</p>
+
+    <div class="cards-grid">
+      @for (diff of diferenciais; track diff.titulo) {
+        <article class="card-diferencial">
+          <span class="icone">{{ diff.icone }}</span>
+          <h3>{{ diff.titulo }}</h3>
+          <p>{{ diff.descricao }}</p>
+        </article>
+      }
+    </div>
+  </section>
+
+  <section class="cta-rodape">
+    <h2>Venha Conhecer Nossa Estrutura</h2>
+    <p>Agende uma avaliação ou tire suas dúvidas diretamente com nossa equipe técnica.</p>
+    <div class="cta-botoes">
+      <a routerLink="/contatos" class="btn-primario">Falar Conosco</a>
+      <a routerLink="/carro" class="btn-outline">Ver Serviços de Carro</a>
+    </div>
+  </section>
+</main>
