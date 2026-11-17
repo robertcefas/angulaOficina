@@ -1,0 +1,77 @@
+<main>
+  <section class="apresentacao">
+    <div class="limite-oficina">
+      <h1>Solicite um orçamento</h1>
+      <p>Informe os dados do seu veículo e o serviço que você precisa.</p>
+    </div>
+  </section>
+
+  <div class="limite-oficina conteudo-orcamento">
+    <form #formulario="ngForm" (ngSubmit)="revisar(formulario)" (input)="resumo = null" (change)="resumo = null">
+      <h2>Dados do orçamento</h2>
+      <p>Campos com * são obrigatórios.</p>
+
+      <div class="campos">
+        <label>
+          Nome completo *
+          <input name="nome" [(ngModel)]="dados.nome" autocomplete="name" pattern=".*\S.*" required />
+        </label>
+        <label>
+          Telefone ou WhatsApp *
+          <input type="tel" name="telefone" [(ngModel)]="dados.telefone" autocomplete="tel" pattern=".*[0-9].*" required />
+        </label>
+        <label>
+          Tipo de veículo *
+          <select name="tipo" [(ngModel)]="dados.tipo" required>
+            <option>Carro</option>
+            <option>Moto</option>
+          </select>
+        </label>
+        <label>
+          Modelo *
+          <input name="modelo" [(ngModel)]="dados.modelo" pattern=".*\S.*" required />
+        </label>
+        <label>
+          Ano
+          <input name="ano" [(ngModel)]="dados.ano" inputmode="numeric" pattern="[0-9]{4}" maxlength="4" />
+        </label>
+        <label>
+          Serviço *
+          <select name="servico" [(ngModel)]="dados.servico" required>
+            <option value="" disabled>Selecione um serviço</option>
+            <option>Revisão preventiva</option>
+            <option>Troca de óleo e filtros</option>
+            <option>Freios</option>
+            <option>Suspensão e direção</option>
+            <option>Outro serviço</option>
+          </select>
+        </label>
+        <label class="campo-inteiro">
+          Detalhes
+          <textarea name="detalhes" [(ngModel)]="dados.detalhes" rows="4" placeholder="Descreva o serviço ou o problema que você percebeu."></textarea>
+        </label>
+      </div>
+
+      @if (formulario.submitted && formulario.invalid) {
+        <p class="erro" role="alert">Confira os campos obrigatórios e, se preencher o ano, use quatro dígitos.</p>
+      }
+      <button type="submit">Revisar solicitação</button>
+    </form>
+
+    @if (resumo; as solicitacao) {
+      <section class="resumo" aria-live="polite">
+        <h2>Resumo da solicitação</h2>
+        <p>Use este resumo ao falar com a oficina. Ele fica disponível nesta página.</p>
+        <dl>
+          <dt>Nome</dt><dd>{{ solicitacao.nome }}</dd>
+          <dt>Telefone</dt><dd>{{ solicitacao.telefone }}</dd>
+          <dt>Veículo</dt><dd>{{ solicitacao.tipo }} · {{ solicitacao.modelo }} {{ solicitacao.ano }}</dd>
+          <dt>Serviço</dt><dd>{{ solicitacao.servico }}</dd>
+          @if (solicitacao.detalhes.trim()) {
+            <dt>Detalhes</dt><dd>{{ solicitacao.detalhes }}</dd>
+          }
+        </dl>
+      </section>
+    }
+  </div>
+</main>

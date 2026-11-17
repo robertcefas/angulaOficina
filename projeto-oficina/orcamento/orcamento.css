@@ -1,0 +1,102 @@
+.apresentacao {
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+  border-bottom: 4px solid var(--oficina-destaque);
+  background: #303741;
+  color: white;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+h2 {
+  margin: 0;
+}
+
+p {
+  margin: 0.5rem 0 0;
+  line-height: 1.5;
+}
+
+.conteudo-orcamento {
+  max-width: 46rem;
+  padding-block: 2rem;
+}
+
+form,
+.resumo {
+  padding: clamp(1rem, 4vw, 1.75rem);
+  border: 1px solid #dce0e5;
+  border-radius: 0.5rem;
+  background: white;
+}
+
+.campos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 16rem), 1fr));
+  gap: 1rem;
+  margin-block: 1.25rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  font-weight: 650;
+}
+
+.campo-inteiro {
+  grid-column: 1 / -1;
+}
+
+input,
+select,
+textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid #a5adb7;
+  border-radius: 0.35rem;
+  background: white;
+  color: inherit;
+  font: inherit;
+  font-weight: 400;
+}
+
+textarea {
+  resize: vertical;
+}
+
+button {
+  margin-top: 0.75rem;
+  padding: 0.75rem 1rem;
+  border: 0;
+  border-radius: 0.4rem;
+  background: var(--oficina-destaque);
+  color: var(--oficina-escuro);
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #ffd08a;
+}
+
+.erro {
+  color: #a12424;
+}
+
+.resumo {
+  margin-top: 1rem;
+  background: #fff5e4;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin: 0 0 0.75rem;
+  overflow-wrap: anywhere;
+}
